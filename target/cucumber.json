@@ -1,0 +1,42 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-03-17T13:45:44.778Z",
+        "line": 3,
+        "name": "Verify that user can login with valid phone number credentials",
+        "description": "",
+        "id": "login-functionality;verify-that-user-can-login-with-valid-phone-number-credentials",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException\r\n\tat com.application.StepDefs.LoginSteps.user_logged_with_valid_phone_number_credentials(LoginSteps.java:16)\r\n\tat ✽.user logged with valid phone number credentials(file:src/test/resources/features/Login/login.feature:4)\r\n",
+              "duration": 10934400,
+              "status": "failed"
+            },
+            "line": 4,
+            "name": "user logged with valid phone number credentials",
+            "match": {
+              "location": "LoginSteps.user_logged_with_valid_phone_number_credentials()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@wip"
+          }
+        ]
+      }
+    ],
+    "name": "Login Functionality",
+    "description": "",
+    "id": "login-functionality",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/Login/login.feature",
+    "tags": []
+  }
+]
