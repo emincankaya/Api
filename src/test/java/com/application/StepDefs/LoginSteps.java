@@ -11,18 +11,17 @@ import static io.restassured.RestAssured.given;
 
 
 public class LoginSteps {
-    Response response;
+
 
     @Then("user logged with valid phone number credentials")
     public void user_logged_with_valid_phone_number_credentials() {
-        response=     given().accept(ContentType.JSON)
+         given().accept(ContentType.JSON)
                 .and()
                 .header("Authorization",Authantication.generateToken())
                 .when()
-                .post("https://cedtradingapi-staging.bitci.com/api/Accountv2/login");
+                .post("https://cedtradingapi-staging.bitci.com/api/Accountv2/login").then().statusCode(200);
 
 
-        Assert.assertEquals(200,response.statusCode());
 
 
     }
