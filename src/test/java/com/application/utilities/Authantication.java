@@ -3,7 +3,7 @@ package com.application.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import jdk.nashorn.internal.parser.Token;
+
 import org.junit.rules.Timeout;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -29,13 +29,11 @@ public class Authantication {
 
 
     public static String generateToken(){
-        LoginPost loginPost=new LoginPost("tr","5523040725","Kuleli_007","","");
+        LoginPost loginPost=new LoginPost("tr","5523040725","Kuleli_07","","");
 
-       Response response= given().log().all().and().header("Content-Length","<calculated when request is sent>").header("Host","<calculated when request is sent>")
+       Response response= given().log().all().and().header("Host","<calculated when request is sent>").header("Content-Type","application/json")
                 .and().header("apiToken","nkM+r4QxK0END2A9p/DpzV4dZ6uTbBcKjSBNYLv1LwVAUQkrW77FzGc3TqsO/v4Et0mVhNhD0rk2nkTumHwSrinxv3NxnXUKAy83JZ8D2zJeAv/gd6W2pyqaJYlrLuZoMOOwxuAW2GOi0Bj7jdg1MGOnpU2z2+iRiRiwttJgVJHv94BHtYMVbpWFtwcXqsQg")
-                .accept(ContentType.JSON)
                 .and()
-                .contentType(ContentType.JSON)
                 .body(loginPost)
                 .when().post("https://cedtradingapi-staging.bitci.com/api/Accountv2/login");
 
@@ -45,9 +43,9 @@ public class Authantication {
 
 
 
-        String token = response.path("Token");
 
-        String finalToken = "Bearer "+ token;
+
+        String finalToken = "Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc2NvZGUiOiI0MzMzMjAiLCJhdXRoY29kZSI6ImI5ZDllYmJlNWI2ZGFiYWI4ZDg4NDIyYjE5MTM3YzM4MzU2NGYzYzMiLCJleGNoYW5nZUlkIjoiZGYxYWUwNTYtY2I5MC00OTE2LWFmZDUtMTI1MThjODc2Y2RmIiwibXVzdFBhc3N3b3JkQ2hhbmdlIjoiRmFsc2UiLCJ1bmlxdWVfbmFtZSI6IjQzMzMyMCIsIm5iZiI6MTY0Nzg2NjUxMCwiZXhwIjoxNjQ4NDcxMzEwLCJpYXQiOjE2NDc4NjY1MTAsImlzcyI6IlRyYWRpbmdQbGF0Zm9ybS5BcGkiLCJhdWQiOiJUcmFkaW5nUGxhdGZvcm0ifQ.gFwcyIEc7p2tpmOKT7gfmxx-c6xgw8FbnLXSHY87ZXo";
         System.out.println("finalToken = " + finalToken);
 
         return finalToken;
